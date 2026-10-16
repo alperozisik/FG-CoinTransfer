@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+*.log
+*.bak
+reference/
+sandbox*/
+db.xml
+campaign.xml
+extensionstate.xml
+release/extension.xml

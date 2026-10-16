@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <windowclass name="cointransfer_window" copy="charsheethelper_base">
+    <placement><size width="590" height="480" /></placement>
+    <sizelimits><minimum width="590" height="480" /><dynamic /></sizelimits>
+    <windowmenu><nolock /></windowmenu>
+    <script file="scripts/coin_transfer_window.lua" />
+    <sheetdata>
+      <label name="operation_label"><anchored><top offset="48" /><left offset="30" /></anchored><static>Operation</static></label>
+      <comboboxc name="operation"><anchored height="20"><top offset="47" /><left offset="140" /><right offset="-35" /></anchored><script>function onValueChanged() if super and super.onValueChanged then super.onValueChanged();end window.modeChanged();end</script></comboboxc>
+      <stringcontrol name="selection_label"><anchored height="20" width="100"><top offset="83" /><left offset="30" /></anchored><font>sheetlabel</font><readonly /><nodrag /></stringcontrol>
+      <comboboxc name="selection"><anchored height="20"><top offset="82" /><left offset="140" /><right offset="-35" /></anchored><script>function onValueChanged() if super and super.onValueChanged then super.onValueChanged();end window.selectionChanged();end</script></comboboxc>
+      <label name="denom_label"><anchored width="95"><top offset="126" /><left offset="35" /></anchored><static>Currency</static></label>
+      <label name="available_label"><anchored width="115"><top offset="126" /><left offset="150" /></anchored><static>Available</static></label>
+      <label name="quantity_label"><anchored width="110"><top offset="126" /><left offset="295" /></anchored><static>Quantity</static></label>
+      <label name="after_label"><anchored width="130"><top offset="126" /><right offset="-35" /></anchored><static>Destination After</static></label>
+      <windowlist name="quantities"><anchored><top offset="148" /><left offset="30" /><right offset="-35" /><bottom offset="-155" /></anchored><class>cointransfer_quantity</class><datasource /><skipempty /></windowlist>
+      <scrollbar><anchored to="quantities" /><target>quantities</target></scrollbar>
+      <stringcontrol name="summary"><anchored height="20"><left offset="35" /><right offset="-35" /><bottom offset="-126" /></anchored><font>sheetlabel</font><readonly /><nodrag /></stringcontrol>
+      <stringcontrol name="hint"><anchored height="36"><left offset="35" /><right offset="-35" /><bottom offset="-89" /></anchored><font>sheettext</font><multilinespacing>16</multilinespacing><readonly /><nodrag /></stringcontrol>
+      <stringcontrol name="status"><anchored height="35"><left offset="35" /><right offset="-35" /><bottom offset="-52" /></anchored><font>sheettext</font><multilinespacing>16</multilinespacing><readonly /><nodrag /></stringcontrol>
+      <button_text name="all"><anchored width="90"><left offset="35" /><bottom offset="-24" /></anchored><text>All Available</text><script>function onButtonPress() window.fillAll();end</script></button_text>
+      <button_text name="clear"><anchored width="60"><left offset="140" /><bottom offset="-24" /></anchored><text>Clear</text><script>function onButtonPress() window.resetQuantities();end</script></button_text>
+      <button_text name="refresh"><anchored width="70"><left offset="215" /><bottom offset="-24" /></anchored><text>Refresh</text><script>function onButtonPress() window.rebuild();end</script></button_text>
+      <button_text name="apply"><anchored width="110"><right offset="-35" /><bottom offset="-24" /></anchored><text>Transfer</text><script>function onButtonPress() window.transfer();end</script></button_text>
+    </sheetdata>
+  </windowclass>
+  <windowclass name="cointransfer_quantity">
+    <sizelimits><minimum height="30" /></sizelimits>
+    <sheetdata>
+      <stringcontrol name="denomination"><anchored width="90" height="20"><top offset="3" /><left offset="5" /></anchored><font>sheetlabel</font><readonly /><nodrag /></stringcontrol>
+      <numbercontrol name="available"><anchored width="100" height="20"><top offset="3" /><left offset="120" /></anchored><font>sheettext</font><readonly /><nodrag /></numbercontrol>
+      <numbercontrol name="quantity"><anchored width="100" height="20"><top offset="3" /><left offset="265" /></anchored><frame name="fielddark" offset="5,2,5,2" /><font>sheettext</font><min>0</min><nodrag /><script>function onValueChanged() window.windowlist.window.refreshBalances();end</script></numbercontrol>
+      <numbercontrol name="after"><anchored width="110" height="20"><top offset="3" /><right offset="-5" /></anchored><font>sheettext</font><readonly /><nodrag /></numbercontrol>
+    </sheetdata>
+  </windowclass>
+  <template name="cointransfer_open_button"><button_text_sm><anchored width="100" height="18"><top offset="16" /><right offset="-25" /></anchored><text>Coin Transfer</text><tooltip>Transfer party coins or carry coins in inventory containers.</tooltip><script>
+    function onInit()
+      -- Current stock 5E puts equipment controls at the top. Reserve a row there.
+      -- MNM's older Treasure-first layout has no such content subwindow.
+      if window.content and window.content.subwindow and window.content.subwindow.items then
+        window.content.setAnchor("top",nil,"top","absolute",35);
+      elseif window.contents and window.contents.subwindow and window.contents.subwindow.items then
+        window.contents.setAnchor("top",nil,"top","absolute",72);
+      end
+    end
+    function onButtonPress() CoinTransfer.open(window.getDatabaseNode());end
+  </script></button_text_sm></template>
+  <windowclass name="charsheet_inventory" merge="join"><sheetdata><cointransfer_open_button name="cointransfer_open" /></sheetdata></windowclass>
+  <windowclass name="charsheet_inventoryft" merge="join"><sheetdata><cointransfer_open_button name="cointransfer_open"><anchored width="100" height="18"><top offset="48" /><right offset="-40" /></anchored></cointransfer_open_button><scrollbar name="cointransfer_content_scroll"><anchored to="contents" /><target>contents</target><script>function onInit() setVisible(window.contents and window.contents.subwindow and window.contents.subwindow.items ~= nil);end</script></scrollbar></sheetdata></windowclass>
+</root>
