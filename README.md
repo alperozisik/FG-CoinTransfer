@@ -2,7 +2,7 @@
 
 <img src="assets/coin-transfer-icon-96.png" alt="Coin Transfer coin and arrows icon" width="96" height="96" align="right">
 
-Move shared party money into your character's Treasure or inventory containers, and turn coins into weighted items whenever you need them. Players can withdraw and deposit through their owned character without a separate GM approval click. The English interface remembers the last operation and container.
+Keep a common fund for supplies, pool loot after an adventure, and let players withdraw or return coins through their own character sheets. When the hoard gets heavy, turn Treasure balances into physical coin items and move them into a Bag of Holding; pair with Extraplanar Containers for its supported weight exemption. The English interface remembers the last operation and container.
 
 [Download v0.1.4](https://github.com/alperozisik/FG-CoinTransfer/releases/tag/v0.1.4) · [Report an issue](https://github.com/alperozisik/FG-CoinTransfer/issues) · [Screenshot gallery](docs/forge/images/README.md)
 
@@ -19,6 +19,12 @@ Forge publication is pending; the current download is the public GitHub Release.
 - For physical coin transfers with MNM Coin Manager/Upgrade: disable MNM's inventory coin mirroring option. Containers must have unique names and quantity one.
 
 Separate 2014/2024 configurations and other-extension combinations are unverified for v0.1.4; see [tested environment and support limits](#tested-environment-and-support-limits).
+
+## One party, one shared purse
+
+Pool adventure loot and player contributions in the Party Sheet's shared Loot coins. A character can withdraw money for supplies, then deposit the unused coins back through their own sheet. For example, starting with **300 GP**, a **25 GP** withdrawal leaves **275 GP** in the shared pool; returning **10 GP** brings it to **285 GP**. Another character's **20 GP** contribution brings the common fund to **305 GP**.
+
+Party transfers use the connected host's balance and membership checks and require no separate GM distribution or approval click. The shared pool is not a character's carried balance: moving money between them changes where it is held, without adding it twice. GP stays GP and SP stays SP; currency exchange, shops and banking are outside the scope.
 
 ## First transfer
 
@@ -41,6 +47,16 @@ The button is also added to Floating Tabs inventory. Players can use `/cointrans
 
 Select whole coin quantities and click **Transfer**. The last operation and container are saved per character. A missing or ambiguous container must be selected again. Container stacks must have quantity 1 and unique names.
 
+## From heavy hoard to Bag of Holding
+
+At a campaign weight of **0.02 lb per coin**, 4,000 GP weighs **80 lb**. Choose **Coins -> Items** and select your Bag of Holding to move existing Treasure GP into it, or **Withdraw from Party** to send shared loot directly to the bag. The coins become normal inventory stacks with quantity, monetary cost and unit weight.
+
+Recommended companion: **[Extraplanar Containers and Bag of Holding](https://forge.fantasygrounds.com/shop/items/13/view) by bmos**, available free on Forge. Coin Transfer puts the coins in the bag; this companion supplies the special container-weight rules. Coin Transfer alone does not make bag contents weightless.
+
+For the companion's documented exemption, use a supported, uniquely named container such as **Bag of Holding**, and mark the coin contents **Carried**, rather than Equipped. Names containing `of holding`, `portable hole`, `handy haversack`, `extraplanar` or `weightless` are among its supported matches. An ordinary backpack gets container features, not weightless contents. Coin Transfer additionally requires the destination container's quantity to be **1**. Check the resulting coin stack's carrying state: newly created stacks inherit the selected container's state.
+
+This pairing has historical session coverage, but the special weight exemption was **not independently reverified with Coin Transfer v0.1.4**. Follow the companion's current setup instructions and capacity limits. Carried/Equipped coin items both count in Coin Transfer's currency totals; that money-counting rule is separate from the companion's weight exemption.
+
 ## One combined carried total
 
 Party Sheet > Inventory > Carried currency totals include both Treasure coins and physical coin items marked Carried or Equipped, across all containers. Each character appears once per denomination with the combined amount. The shared Loot pool remains separate. Not Carried items, zero-count items, ordinary valuables, and MNM's aggregate Currency mirror are excluded from this currency total. Changing an item's carrying status updates the total.
@@ -52,6 +68,14 @@ In this synthetic example, Test 1 has **126 GP**: 106 Treasure + 5 in Backpack +
 [More screenshots: container selection, inventory stacks, and coin cost/weight](docs/forge/images/README.md).
 
 Party transfers require Party Sheet membership and available shared money. The host processes player requests automatically; the GM does not approve each request. Balances are rechecked on the host, and replayed requests are rejected. Multi-currency requests are fully validated before changing balances. Transfers preserve denominations; currency exchange is outside this extension's scope.
+
+## Settings and remembered choices
+
+Coin Transfer adds **no production campaign Settings entries** and no weight-exemption switch. Choose the operation and source/destination in its own window. The initial operation is **Withdraw from Party**; the initial endpoint is **Treasure > Coins** for Withdraw/Deposit and **Inventory (no container)** for Coins -> Items/Items -> Coins. The last operation and a separate endpoint for each operation are saved **per character in the campaign**, shared by the GM and that character's owner, and survive reloads. Quantity fields start at **0** when the window or operation is rebuilt; quantities are not remembered.
+
+Coin names, values and unit weights come from campaign **Currencies** definitions, not a Coin Transfer setting. With MNM Coin Manager/Upgrade, the GM must **disable MNM's inventory coin mirroring** before physical transfers: enabled blocks any transfer involving coin items, while disabled permits them subject to normal validation. Transfers between shared coins and native Treasure are unaffected by this guard. This is MNM's option; Coin Transfer neither registers it nor chooses its default or storage policy.
+
+See the [complete choices, defaults and persistence reference](docs/settings.md). The development harness's dummy mirror option is excluded from the release and is not a product setting.
 
 ## Install
 

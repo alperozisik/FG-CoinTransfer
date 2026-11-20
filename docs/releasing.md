@@ -12,6 +12,10 @@
 
 Candidate 0.1.4 completed the acceptance scope recorded in testing.md; [public Release v0.1.4](https://github.com/alperozisik/FG-CoinTransfer/releases/tag/v0.1.4) is published and its downloaded asset hash matches the accepted candidate. See releases/v0.1.4.md. The existing 0.1.3 asset SHA-256 is `204c47bfaaa95ad8e56b420acaf693e8a3a994751f47227daa0aa42489830aa5`; its difference from the committed ZIP is metadata-only. The historical 0.1.3 standalone package did not embed LICENSE. That gap is addressed in the new candidate rather than by changing the published asset.
 
+## Documentation stays in sync
+
+For every user-facing update, revise the GitHub README, any existing translated guide, the repository Forge description draft, screenshots/captions, and Settings/defaults/persistence information together. Until Forge publication, the repository draft is the Forge counterpart. Once published, update the live Forge description in the same documentation change set, within the user's publication authorization. Documentation-only changes do not require a new binary release or tag.
+
 ## Build properties
 
 The stdlib builder fixes entry timestamps, entry order, permissions, compression settings, and text line endings, rejects mismatched startup/manifest versions, embeds the repository LICENSE as `LICENSE.txt`, and excludes the test harness. It rejects archive entries outside the Forge file-extension allowlist. The root source repository keeps its conventional extensionless `LICENSE`. Rebuild equality is checked in the same Python/zlib environment; use the recorded artifact hash as the publication identity rather than assuming every possible compression-library version produces identical bytes.

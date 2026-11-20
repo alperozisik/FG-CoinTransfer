@@ -2,9 +2,13 @@
 
 Draft forum opening. Do not post before the public Release and separately authorized Forge listing exist.
 
-Coin Transfer provides an English window for moving shared Party Sheet money to and from a character's Treasure or inventory containers. Coins can also become normal inventory items with quantity, unit weight, and monetary cost, then be converted back.
+Pool adventure loot and player contributions in one shared Party Sheet fund. Players can withdraw money for supplies and return spare coins through their own character sheets. The English window also turns native Treasure coins into weighted inventory items with monetary cost, and converts them back.
 
 Players can transfer from their owned Party Sheet character without the GM clicking a distribution/approval button for every request. The connected host validates balances and membership. Container selection is remembered, and Carried/Equipped physical coin quantities are included in the Party Sheet's combined per-character currency total.
+
+For heavy hoards, send physical coins directly to a Bag of Holding. The free [Extraplanar Containers and Bag of Holding by bmos](https://forge.fantasygrounds.com/shop/items/13/view) supplies special weight handling; Coin Transfer moves the coins. Use supported, uniquely named containers with quantity one and keep coin contents **Carried**, rather than Equipped, for the companion's exemption. That weight exemption was not independently reverified with v0.1.4. Shared Loot and each character's combined carried total remain separate.
+
+**Settings:** Coin Transfer adds no production campaign Settings entries. Its initial operation is Withdraw from Party, and operation/endpoint choices persist per character in the campaign. See the [complete choices/defaults reference](../settings.md). MNM inventory mirroring is MNM's option, which the GM must disable before physical transfers; the QA dummy option is not included in the release.
 
 **Get it:** [Forge listing — add only after publication]. [GitHub source and Releases](https://github.com/alperozisik/FG-CoinTransfer). **Version:** 0.1.4. **License:** MIT.
 

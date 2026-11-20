@@ -1,1 +1,1 @@
-Move shared party coins into character Treasure or inventory containers, convert coins to weighted items, and track combined carried currency totals in Fantasy Grounds 5E.
+Pool party loot, let players withdraw and return coins without GM approval clicks, and move weighted coin items into containers. Pair with Extraplanar Containers for its supported Bag of Holding weight rules.
