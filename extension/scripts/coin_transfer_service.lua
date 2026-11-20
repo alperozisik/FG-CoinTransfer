@@ -1,7 +1,7 @@
 -- Coin Transfer. All shared-money writes run on the host.
 -- A request is carried by an owned character DB leaf, never by a claimed username.
 local busy = false;
-local version = "0.1.3";
+local version = "0.1.4";
 local partyList = "partysheet.treasureparcelcoinlist";
 local maxCount = 1000000000;
 local longNames = { CP="Copper Piece", SP="Silver Piece", EP="Electrum Piece", GP="Gold Piece", PP="Platinum Piece" };

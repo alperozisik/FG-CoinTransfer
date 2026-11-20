@@ -1,20 +1,38 @@
 -- Development harness. Excluded from the release archive.
 local passed=0;
+local transcript={};
 function onInit() Debug.console("CT test harness initialized");end
 local function check(label,condition)
   if not condition then error("FAIL: " .. label);end
-  passed=passed+1;Debug.console("CT PASS " .. label);
+  passed=passed+1;table.insert(transcript,"CT PASS " .. label);Debug.console("CT PASS " .. label);
 end
 function onTabletopInit()
   Debug.console("CT harness enabled",Session.IsHost,DB.getValue("cointransfertest.enabled",0));
   if not Session.IsHost or DB.getValue("cointransfertest.enabled",0)~=1 then return;end
+  if DB.getValue("cointransfertest.fixture","")~="cointransfer-synthetic-v1" then
+    Debug.console("CT TEST REFUSED: synthetic fixture marker missing");return;
+  end
+  for id,name in pairs({["id-00001"]="Coin Transfer Test 1",["id-00002"]="Coin Transfer Test 2",["id-00003"]="Coin Transfer Outsider"}) do
+    if DB.getValue("charsheet." .. id .. ".name","")~=name then
+      Debug.console("CT TEST REFUSED: synthetic character mismatch",id);return;
+    end
+  end
   local ok,err=pcall(run);
   DB.setValue("cointransfertest.result","string",ok and (tostring(passed) .. " checks passed") or tostring(err));
+  table.insert(transcript,"CT TEST RESULT " .. passed .. " " .. tostring(ok) .. " " .. tostring(err));
+  DB.setValue("cointransfertest.log","string",table.concat(transcript,"\n"));
+  ChatManager.SystemMessage("Coin Transfer QA | " .. DB.getValue("cointransfertest.result",""));
   Debug.console("CT TEST RESULT",passed,ok,tostring(err));
+  if not ok then return;end
   local char=DB.findNode("charsheet.id-00001");
   local w=Interface.openWindow("charsheet",char);w.tabs.activateTabByName("inventory");CoinTransfer.open(char);
 end
 function run()
+  -- Bare 5E has no MNM option. Register a sandbox-only stand-in for the guard.
+  -- This tests the option guard, not compatibility with the MNM extension.
+  if OptionsManager.getOption("inventoryCoinsMNM")=="" then
+    OptionsManager.registerOption2("inventoryCoinsMNM",false,"option_header_game","Coin Transfer QA mirror option","option_entry_cycler",{labels="No|Yes",values="no|yes",baselabel="No",baseval="no",default="no"});
+  end
   OptionsManager.setOption("inventoryCoinsMNM","no");
   local char=DB.findNode("charsheet.id-00001");local other=DB.findNode("charsheet.id-00002");
   for _,path in ipairs({"inventorylist.name","inventorylist.count"}) do local n=DB.getChild(char,path);if n then DB.deleteNode(n);end end
@@ -22,6 +40,10 @@ function run()
   for _,c in ipairs(currencies) do if c.name=="GP" then gp=c;elseif c.name=="SP" then sp=c;end end
   check("campaign currency metadata",gp and gp.value==1 and gp.weight==0.02);
   check("party member lookup",CoinTransfer.isPartyMember(char));
+  local outsider=DB.findNode("charsheet.id-00003");
+  check("outsider not a party member",not CoinTransfer.isPartyMember(outsider));
+  check("outsider cannot withdraw",not CoinTransfer.execute(outsider,"withdraw","coins",{[gp.id]=1}));
+  check("outsider cannot deposit",not CoinTransfer.execute(outsider,"deposit","coins",{[gp.id]=1}));
   for _,c in ipairs(currencies) do
     for _,node in ipairs(CoinTransfer.slots(CoinTransfer.endpoint(char,"coins"),c)) do DB.setValue(node,"amount","number",c.name=="GP" and 100 or c.name=="SP" and 20 or 0);end
     for _,node in ipairs(CoinTransfer.slots(CoinTransfer.endpoint(char,"party"),c)) do DB.setValue(node,"amount","number",c.name=="GP" and 300 or c.name=="SP" and 80 or 0);end
@@ -75,6 +97,7 @@ function run()
   -- Regression: one displayed amount per character, across containers/states.
   local physical=CoinTransfer.slots(pack,gp)[1];
   local qty=DB.getValue(physical,"count",0);
+  check("carrying regression uses a nonempty stack",qty>0);
   DB.setValue(physical,"carried","number",1);
   local totals=CoinTransferPartyTotals.collectTotals();local carriedTotal=totals.GP.count;
   DB.setValue(physical,"carried","number",0);

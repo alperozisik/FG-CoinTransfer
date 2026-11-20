@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.4 — 2026-11-20
+- Include the full MIT license and copyright notice inside the standalone extension archive.
+- Produce reproducible candidate archives in `dist/`, preserving published artifacts in `release/`.
+- Add installation, upgrade, removal, compatibility, and release-provenance documentation.
+- Prepare fully synthetic sandbox fixtures and guarded acceptance tests; 44 native FG assertions and four connected-player operations passed on FG 5.1.15 / 5E 2026-10-06.
+- Add original source-drawn icon assets and draft Forge/forum copy.
+
 ## 0.1.3
 - Show the extension version in chat on campaign load.
 

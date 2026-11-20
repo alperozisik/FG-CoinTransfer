@@ -8,3 +8,4 @@ db.xml
 campaign.xml
 extensionstate.xml
 release/extension.xml
+dist/

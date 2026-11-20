@@ -1,0 +1,49 @@
+FG 5.1.15 (2026-10-28); 5E/CoreRPG 2026-10-06
+Bare 5E + Coin Transfer QA 0.1.4; synthetic fixture
+MNM mirror option registered by the harness only; no MNM runtime compatibility claim.
+
+CT PASS campaign currency metadata
+CT PASS party member lookup
+CT PASS outsider not a party member
+CT PASS outsider cannot withdraw
+CT PASS outsider cannot deposit
+CT PASS withdraw to Treasure
+CT PASS Treasure and party deltas
+CT PASS withdraw to Bag of Holding
+CT PASS physical item deltas
+CT PASS native container linkage
+CT PASS unit weight and monetary cost
+CT PASS redeem physical items
+CT PASS redeem deltas
+CT PASS materialize to backpack
+CT PASS deposit physical coins
+CT PASS deposit Treasure coins
+CT PASS gold conservation
+CT PASS remember destination
+CT PASS insufficient source rejected
+CT PASS negative rejected
+CT PASS fractional rejected
+CT PASS unknown currency rejected
+CT PASS missing container rejected
+CT PASS all denominations prevalidated
+CT PASS failed requests conserve balance
+CT PASS mirror rejects physical conversion
+CT PASS ambiguous container rejected
+CT PASS existing templates reused
+CT PASS ordinary valuable is not currency
+CT PASS request parsing
+CT PASS duplicate denominations rejected
+CT PASS owned DB request processed on host
+CT PASS request replay rejected
+CT PASS first contender can claim pool
+CT PASS second contender cannot overdraw
+CT PASS pool stayed at zero
+CT PASS return claimed pool
+CT PASS conservation after requests and contenders
+CT PASS carrying regression uses a nonempty stack
+CT PASS Not Carried physical coins excluded
+CT PASS Equipped physical coins included
+CT PASS zero count physical coins excluded
+CT PASS party GP display includes physical coins
+CT PASS one combined character entry
+CT TEST RESULT 44 true nil

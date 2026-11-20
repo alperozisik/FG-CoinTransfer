@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root version="4.0">
   <properties>
-    <name>Coin Transfer</name><version>0.1.3</version><author>Local Campaign Tools</author>
+    <name>Coin Transfer</name><version>0.1.4</version><author>Alper Özışık</author>
     <description>Transfer party coins and carry physical currency in inventory containers.</description>
     <ruleset><name>5E</name></ruleset><loadorder>10050</loadorder>
   </properties>

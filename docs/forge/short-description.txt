@@ -1,0 +1,1 @@
+Move shared party coins into character Treasure or inventory containers, convert coins to weighted items, and track combined carried currency totals in Fantasy Grounds 5E.
