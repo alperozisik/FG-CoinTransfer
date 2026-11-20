@@ -15,7 +15,7 @@ Coin Transfer v0.1.4 registers **no production Options/Settings entries**. Its c
 
 The **QA harness** registers a disposable stand-in option only in its guarded synthetic test run. Its No/Yes values and No default are test scaffolding. The harness and its registration are excluded from the distributable, so they must not be advertised as product settings.
 
-**Extraplanar Containers and Bag of Holding** supplies its own weight/capacity handling. Coin Transfer has no weight-exemption setting. The companion documents supported, uniquely named containers and **Carried, not Equipped**, contents for exemption; an ordinary backpack is not weightless. See [bmos's Forge instructions](https://forge.fantasygrounds.com/shop/items/13/view). Coin Transfer counts both Carried and Equipped physical coins in currency totals, independently of weight handling. The special weight exemption was not independently reverified with v0.1.4.
+**Extraplanar Containers and Bag of Holding** supplies its own weight/capacity handling. Coin Transfer has no weight-exemption setting. The companion documents supported, uniquely named containers and **Carried, not Equipped**, contents for exemption; an ordinary backpack is not weightless. See [bmos's Forge instructions](https://forge.fantasygrounds.com/shop/items/13/view). Coin Transfer counts both Carried and Equipped physical coins in currency totals, independently of weight handling. The author confirms that the Bag of Holding weight exemption with the bmos companion was tested successfully (user confirmation, 2026-11-20). No additional version matrix or test-environment details were supplied with that confirmation.
 
 ## Source verification
 

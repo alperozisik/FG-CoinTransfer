@@ -19,3 +19,7 @@ For every user-facing update, revise the GitHub README, any existing translated 
 ## Build properties
 
 The stdlib builder fixes entry timestamps, entry order, permissions, compression settings, and text line endings, rejects mismatched startup/manifest versions, embeds the repository LICENSE as `LICENSE.txt`, and excludes the test harness. It rejects archive entries outside the Forge file-extension allowlist. The root source repository keeps its conventional extensionless `LICENSE`. Rebuild equality is checked in the same Python/zlib environment; use the recorded artifact hash as the publication identity rather than assuming every possible compression-library version produces identical bytes.
+
+## Current Forge handoff
+
+Coin Transfer v0.1.4 was submitted as [Forge item 3794](https://forge.fantasygrounds.com/shop/items/3794/view), using the unchanged public GitHub asset. Item approval/review and build processing are pending; Live/updater delivery has not yet been verified. [Forum thread 88613](https://www.fantasygrounds.com/forums/showthread.php?88613) is published. Follow the [post-approval checklist](forge/READINESS.md) before changing pending notices or advertising updater availability.

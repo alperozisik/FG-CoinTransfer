@@ -6,7 +6,9 @@ Keep a common fund for supplies, pool loot after an adventure, and let players w
 
 [Download v0.1.4](https://github.com/alperozisik/FG-CoinTransfer/releases/tag/v0.1.4) · [Report an issue](https://github.com/alperozisik/FG-CoinTransfer/issues) · [Screenshot gallery](docs/forge/images/README.md)
 
-Forge publication is pending; the current download is the public GitHub Release.
+[Forge listing — awaiting approval](https://forge.fantasygrounds.com/shop/items/3794/view) · [Forum and support](https://www.fantasygrounds.com/forums/showthread.php?88613)
+
+Forge item approval/review is pending and the v0.1.4 build is **QUEUED FOR PROCESSING**. The item is not yet confirmed Live; use the public GitHub Release download for now. Forge updater installation becomes available only after approval and Live delivery have been verified.
 
 <img src="docs/forge/images/coin-transfer-cover-forge.jpg" alt="Illustrative Coin Transfer cover artwork" width="720">
 
@@ -55,7 +57,7 @@ Recommended companion: **[Extraplanar Containers and Bag of Holding](https://for
 
 For the companion's documented exemption, use a supported, uniquely named container such as **Bag of Holding**, and mark the coin contents **Carried**, rather than Equipped. Names containing `of holding`, `portable hole`, `handy haversack`, `extraplanar` or `weightless` are among its supported matches. An ordinary backpack gets container features, not weightless contents. Coin Transfer additionally requires the destination container's quantity to be **1**. Check the resulting coin stack's carrying state: newly created stacks inherit the selected container's state.
 
-This pairing has historical session coverage, but the special weight exemption was **not independently reverified with Coin Transfer v0.1.4**. Follow the companion's current setup instructions and capacity limits. Carried/Equipped coin items both count in Coin Transfer's currency totals; that money-counting rule is separate from the companion's weight exemption.
+The author confirms that the Bag of Holding weight exemption with the bmos companion was tested successfully (user confirmation, 2026-11-20). No additional version matrix or test-environment details were supplied with that confirmation. Follow the companion's current setup instructions and capacity limits. Carried/Equipped coin items both count in Coin Transfer's currency totals; that money-counting rule is separate from the companion's weight exemption.
 
 ## One combined carried total
 
@@ -106,7 +108,7 @@ New MNM Coin and Trade was not installed during development. Native currency dat
 
 Current 0.1.4 acceptance used **Fantasy Grounds 5.1.15**, **5E/CoreRPG 2026-10-06**, Default theme and only Coin Transfer enabled. Eight offline package checks and 44 native FG assertions passed. All four operations passed on a separate owning player client, and reopening the campaign preserved balances and container preferences. See [acceptance evidence](docs/testing.md) and [real product screenshots](docs/forge/images/). Historical testing used **Fantasy Grounds 5.1.13**, with **5E/CoreRPG dated 2026-07-14**. This is a tested environment, not a proven minimum version. The extension targets the shared **5E ruleset**; separate 2014 and 2024 character/rules configurations have not yet completed a recorded acceptance matrix. Do not interpret the 5E label as certification for both editions or every later FG update.
 
-Historical combined-session observations covered MNM Core v83, Coin Manager v16, Upgrade v3, Extraplanar Containers v1.21, Party Item Weight v1.11, Floating Tabs v1.7, Winnowing Pursuits v2.7.6, and Core Dark. This does not certify all features or versions of those extensions. Bag of Holding weight exemption remains the container extension's responsibility and was not independently verified. Acceptance evidence and limits are in [docs/testing.md](docs/testing.md).
+Historical combined-session observations covered MNM Core v83, Coin Manager v16, Upgrade v3, Extraplanar Containers v1.21, Party Item Weight v1.11, Floating Tabs v1.7, Winnowing Pursuits v2.7.6, and Core Dark. This does not certify all features or versions of those extensions. Bag of Holding weight exemption remains the companion's responsibility; the author confirms it was tested successfully. That user confirmation does not certify every companion version or combination. Acceptance evidence and limits are in [docs/testing.md](docs/testing.md).
 
 Transfers preserve denominations; no exchange, banking, shop, or trade automation is provided. Physical coin stacks with zero quantity can remain as inventory records and contribute zero to this extension's currency totals. Editing campaign currency weights later updates owned templates when definitions are ensured; it is not a migration of every existing inventory stack.
 

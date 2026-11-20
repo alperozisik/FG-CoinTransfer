@@ -1,6 +1,6 @@
 # Coin Transfer
 
-Unsubmitted Forge listing draft. Public GitHub v0.1.4 is available; Forge/forum publication is pending.
+Repository copy of the submitted Forge description. [Forge item 3794](https://forge.fantasygrounds.com/shop/items/3794/view) awaits approval/review; its v0.1.4 build is **QUEUED FOR PROCESSING**, not yet verified Live. [Forum thread 88613](https://www.fantasygrounds.com/forums/showthread.php?88613) is published. Current direct download: [GitHub v0.1.4](https://github.com/alperozisik/FG-CoinTransfer/releases/tag/v0.1.4).
 
 Keep a shared fund for supplies, pool adventure loot and character contributions, and let players withdraw what they need or return spare coins through their own character sheets. When the hoard gets heavy, move it into a Bag of Holding as physical coin items and pair with Extraplanar Containers for its supported weight exemption. The English interface opens from **Inventory > Coin Transfer**, with an additional button for Floating Tabs inventory.
 
@@ -29,7 +29,7 @@ Recommended companion: **[Extraplanar Containers and Bag of Holding](https://for
 
 For the companion's documented exemption, use a supported, uniquely named container such as **Bag of Holding**, and mark the coin contents **Carried**, rather than Equipped. Names containing `of holding`, `portable hole`, `handy haversack`, `extraplanar` or `weightless` are among its supported matches. An ordinary backpack gets container features, not weightless contents. Coin Transfer additionally requires the destination container's quantity to be **1**. Check the resulting coin stack's carrying state: newly created stacks inherit the selected container's state.
 
-This pairing has historical session coverage, but the special weight exemption was **not independently reverified with Coin Transfer v0.1.4**. Follow the companion's current setup instructions and capacity limits. Carried/Equipped coin items both count in Coin Transfer's currency totals; that money-counting rule is separate from the companion's weight exemption.
+The author confirms that the Bag of Holding weight exemption with the bmos companion was tested successfully (user confirmation, 2026-11-20). No additional version matrix or test-environment details were supplied with that confirmation. Follow the companion's current setup instructions and capacity limits. Carried/Equipped coin items both count in Coin Transfer's currency totals; that money-counting rule is separate from the companion's weight exemption.
 
 ## Settings
 
@@ -39,7 +39,7 @@ When using MNM Coin Manager/Upgrade, **disable inventory coin mirroring** before
 
 ## Installation and updates
 
-Install the Forge-delivered extension or the `.ext` asset from the matching public GitHub Release. For manual installation, close the campaign, copy `CoinTransfer.ext` into the Fantasy Grounds data folder's `extensions` directory, and enable Coin Transfer in the launcher. Keep one installed copy; do not install the unpacked source beside the archive. The host enables it for the campaign. The startup chat message identifies the loaded version.
+While Forge approval and Live delivery are pending, install the `.ext` asset from the public GitHub Release. After approval and verified Live delivery, the Forge updater can deliver the extension. For manual installation, close the campaign, copy `CoinTransfer.ext` into the Fantasy Grounds data folder's `extensions` directory, and enable Coin Transfer in the launcher. Keep one installed copy; do not install the unpacked source beside the archive. The host enables it for the campaign. The startup chat message identifies the loaded version.
 
 Back up and close the campaign before replacing an older archive. Existing campaign balances/items remain. Removing the extension does not automatically convert physical coin items back to Treasure: use Items -> Coins first if native-only accounting is wanted. Full instructions: https://github.com/alperozisik/FG-CoinTransfer#readme
 
@@ -47,7 +47,7 @@ Back up and close the campaign before replacing an older archive. Existing campa
 
 Targets the Fantasy Grounds **5E ruleset**. Version 0.1.4 passed 44 native checks and all four operations from a separate owning player on FG 5.1.15 (2026-10-28), 5E/CoreRPG 2026-10-06, Default theme, with only Coin Transfer enabled. These are tested versions, not proven minimum versions. Separate 2014/2024 configurations are unverified.
 
-MNM Coin Manager/Upgrade's inventory coin mirroring must be disabled for physical transfers. Historical sessions included those extensions, Floating Tabs, Extraplanar Containers, and Party Item Weight; those combinations were not rerun with 0.1.4 and remain unverified for this release. New MNM Coin and Trade has not been runtime-verified. The bmos companion remains responsible for special weight rules; its exemption has not been independently reverified with v0.1.4.
+MNM Coin Manager/Upgrade's inventory coin mirroring must be disabled for physical transfers. Historical sessions included those extensions, Floating Tabs, Extraplanar Containers, and Party Item Weight; those combinations were not rerun with 0.1.4 and remain unverified for this release. New MNM Coin and Trade has not been runtime-verified. The bmos companion remains responsible for special weight rules; the author confirms its Bag of Holding exemption was tested successfully. This does not establish a complete companion-version matrix.
 
 ## Source, support, and license
 
@@ -55,4 +55,4 @@ MIT license, with the full notice included in the v0.1.4 standalone archive. Sou
 
 Report issues at https://github.com/alperozisik/FG-CoinTransfer/issues with FG/ruleset/extension versions, GM or player role, operation, reproduction steps, and a sanitized error message. Never upload a full campaign database, credentials, or private player records.
 
-The first listing image is an illustrative cover, not a screenshot. Five real product screenshots from the synthetic acceptance campaign follow it. The Forge file must be the unchanged public GitHub Release asset, verified by SHA-256.
+The first listing image is an illustrative cover, not a screenshot. Seven listing images have been uploaded and activated, with the illustrative cover primary; actual product screenshots are clearly distinguished from artwork. The Forge file must be the unchanged public GitHub Release asset, verified by SHA-256.

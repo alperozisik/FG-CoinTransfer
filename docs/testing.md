@@ -27,8 +27,12 @@ After closing both client and host normally, the clean sandbox was reopened: sta
 
 ## Limits
 
-This run did not load MNM, Floating Tabs, Extraplanar Containers, Party Item Weight, custom themes, or New MNM Coin and Trade. Those combinations are unverified for 0.1.4. Separate 2014/2024 configurations, special Bag of Holding weight exemptions, and simultaneous two-client latency/stress behavior were not tested. Sequential pool rejection is not a simultaneous network stress test. Historical observations are not a substitute for these missing checks.
+This run did not load MNM, Floating Tabs, Extraplanar Containers, Party Item Weight, custom themes, or New MNM Coin and Trade. This run does not certify those combinations for 0.1.4. Separate 2014/2024 configurations and simultaneous two-client latency/stress behavior were not tested in this automated/connected-client run. The separate author-confirmed Bag of Holding result is recorded below. Sequential pool rejection is not a simultaneous network stress test. Historical observations are not a substitute for these missing checks.
 
 ## Reproduction
 
 Run `python tests/build_fixture.py --enable-tests --output <new directory>` to prepare invented data. Install the guarded development source only into a disposable sandbox, with its exact fixture marker. Never run the harness on a real campaign. Build `python build_release.py` for a clean archive with no harness; offline checks use `python -m unittest discover -s tests -v`.
+
+## Additional user-confirmed acceptance — 2026-11-20
+
+The author confirms that the Bag of Holding weight exemption with the bmos companion was tested successfully (user confirmation, 2026-11-20). No additional version matrix or test-environment details were supplied with that confirmation. This is accepted user-supplied test evidence, separate from the recorded bare-5E harness/client run. It removes the earlier outstanding Bag of Holding exemption check; it does not expand the automated test matrix or certify other integrations. Coin Transfer moves the coins; Extraplanar Containers supplies the exemption for supported, uniquely named containers with Carried (not Equipped) contents. Container quantity one remains a Coin Transfer requirement.
