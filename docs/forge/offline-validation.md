@@ -1,6 +1,6 @@
 # Offline validation — 2026-11-20
 
-Working source: 0.1.4 candidate, based on public commit `a910f00`. Public Release and Forge submission are pending. Runtime acceptance followed the initial offline preparation.
+Working source: 0.1.4 candidate, based on public commit `a910f00`. Public v0.1.4 Release was subsequently published and the downloaded asset was verified; Forge submission is pending. Runtime acceptance followed the initial offline preparation.
 
 Command: `python -m unittest discover -s tests -v` — **8 tests passed**:
 

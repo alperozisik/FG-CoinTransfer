@@ -10,7 +10,7 @@
 6. Upload **that downloaded file**, unchanged, to Forge. Record the public Release URL, tag/commit, asset filename, digest, and the Forge upload result. Forge/forum publication still requires the user's separate go-ahead for the prepared listing.
 7. A license, code, asset, or packaging change after publication goes through a new appropriate GitHub version first. Never patch only the Forge copy or silently replace an existing public asset.
 
-Candidate 0.1.4 completed the acceptance scope recorded in testing.md; public Release publication and asset hash verification follow. The existing 0.1.3 asset SHA-256 is `204c47bfaaa95ad8e56b420acaf693e8a3a994751f47227daa0aa42489830aa5`; its difference from the committed ZIP is metadata-only. The historical 0.1.3 standalone package did not embed LICENSE. That gap is addressed in the new candidate rather than by changing the published asset.
+Candidate 0.1.4 completed the acceptance scope recorded in testing.md; [public Release v0.1.4](https://github.com/alperozisik/FG-CoinTransfer/releases/tag/v0.1.4) is published and its downloaded asset hash matches the accepted candidate. See releases/v0.1.4.md. The existing 0.1.3 asset SHA-256 is `204c47bfaaa95ad8e56b420acaf693e8a3a994751f47227daa0aa42489830aa5`; its difference from the committed ZIP is metadata-only. The historical 0.1.3 standalone package did not embed LICENSE. That gap is addressed in the new candidate rather than by changing the published asset.
 
 ## Build properties
 
