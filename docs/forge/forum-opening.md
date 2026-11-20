@@ -1,6 +1,6 @@
 # [5E Extension] Coin Transfer — party transfers and physical coins
 
-Repository companion to the published [forum thread 88613](https://www.fantasygrounds.com/forums/showthread.php?88613). Its first three posts are 775980 (introduction/benefits), 775981 (usage, complete choices and MNM settings), and 775982 (release/support), posted by morfil. The thread links to Forge item 3794, which awaits approval; its build is queued, not yet verified Live.
+Repository companion to the published [forum thread 88613](https://www.fantasygrounds.com/forums/showthread.php?88613). Its first three posts are 775980 (introduction/benefits), 775981 (usage, complete choices and MNM settings), and 775982 (release/support), posted by morfil. Forge item 3794 is approved, ACTIVE/listed, with v0.1.4 build #1 assigned to Live (coordinator UI verification, 2026-11-20). A separate FG Updater download smoke test has not been performed in this chat.
 
 Pool adventure loot and player contributions in one shared Party Sheet fund. Players can withdraw money for supplies and return spare coins through their own character sheets. The English window also turns native Treasure coins into weighted inventory items with monetary cost, and converts them back.
 
@@ -10,11 +10,11 @@ For heavy hoards, send physical coins directly to a Bag of Holding. The free [Ex
 
 **Settings:** Coin Transfer adds no production campaign Settings entries. Its initial operation is Withdraw from Party, and operation/endpoint choices persist per character in the campaign. See the [complete choices/defaults reference](../settings.md). MNM inventory mirroring is MNM's option, which the GM must disable before physical transfers; the QA dummy option is not included in the release.
 
-**Get it:** [Forge listing — awaiting approval](https://forge.fantasygrounds.com/shop/items/3794/view). [GitHub source and Releases](https://github.com/alperozisik/FG-CoinTransfer). **Version:** 0.1.4. **License:** MIT.
+**Get it:** [Forge listing — Live](https://forge.fantasygrounds.com/shop/items/3794/view). [GitHub source and Releases](https://github.com/alperozisik/FG-CoinTransfer). **Version:** 0.1.4. **License:** MIT.
 
 **Images:** illustrative cover first, followed by real transfer/container/item/Party Sheet screenshots from the synthetic test campaign. The cover is not a rendering of the UI.
 
-**Install:** until Forge approval and verified Live updater delivery, use the public GitHub asset. Close the campaign, place the public Release's `CoinTransfer.ext` in the FG data `extensions` directory, and enable Coin Transfer. Avoid an unpacked/archived duplicate. Back up before updates. Removing the extension leaves physical coin items in the campaign; convert them back first if desired.
+**Install:** add the Live Forge item to your inventory, close FG sessions, run **Check for Updates** from the launcher, then enable Coin Transfer for the campaign. Manual alternative: place the public GitHub Release's `CoinTransfer.ext` in the FG data `extensions` directory. Avoid an unpacked/archived duplicate. Back up before updates. Removing the extension leaves physical coin items in the campaign; convert them back first if desired.
 
 **Tested environment:** FG 5.1.15 (2026-10-28), 5E/CoreRPG 2026-10-06, Default theme, only Coin Transfer enabled. 44 native checks and all four operations from a separate owning client passed. Minimum-version and separate 2014/2024 compatibility claims are not established yet.
 
@@ -22,4 +22,4 @@ For heavy hoards, send physical coins directly to a Bag of Holding. The free [Ex
 
 Please report problems through [GitHub Issues](https://github.com/alperozisik/FG-CoinTransfer/issues), including the loaded version, FG/ruleset versions, other relevant extensions, GM/player role, and clear reproduction steps. Share only sanitized logs/screenshots, not complete campaign files.
 
-The temporary pending-approval notice in forum post 775980 must remain until the Forge item and build are actually Live and delivery has been verified. Do not create a duplicate thread for a status update.
+The coordinator handles removal of the obsolete approval/queued notice from forum post 775980 now that Live/ACTIVE status is verified. Do not claim an independent updater download test or create a duplicate thread. This repository update does not edit the forum.

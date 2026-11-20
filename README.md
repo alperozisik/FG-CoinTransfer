@@ -6,9 +6,9 @@ Keep a common fund for supplies, pool loot after an adventure, and let players w
 
 [Download v0.1.4](https://github.com/alperozisik/FG-CoinTransfer/releases/tag/v0.1.4) · [Report an issue](https://github.com/alperozisik/FG-CoinTransfer/issues) · [Screenshot gallery](docs/forge/images/README.md)
 
-[Forge listing — awaiting approval](https://forge.fantasygrounds.com/shop/items/3794/view) · [Forum and support](https://www.fantasygrounds.com/forums/showthread.php?88613)
+[Forge listing — Live](https://forge.fantasygrounds.com/shop/items/3794/view) · [Forum and support](https://www.fantasygrounds.com/forums/showthread.php?88613)
 
-Forge item approval/review is pending and the v0.1.4 build is **QUEUED FOR PROCESSING**. The item is not yet confirmed Live; use the public GitHub Release download for now. Forge updater installation becomes available only after approval and Live delivery have been verified.
+Coin Transfer v0.1.4 **build #1 is Live** on Forge and the item is **ACTIVE/listed**, verified by the publication coordinator on 2026-11-20. Install through Forge or use the public GitHub Release. A separate end-to-end FG Updater download smoke test has not been performed in this chat.
 
 <img src="docs/forge/images/coin-transfer-cover-forge.jpg" alt="Illustrative Coin Transfer cover artwork" width="720">
 
@@ -81,6 +81,10 @@ See the [complete choices, defaults and persistence reference](docs/settings.md)
 
 ## Install
 
+**Forge:** add [Coin Transfer](https://forge.fantasygrounds.com/shop/items/3794/view) to your Forge inventory, close active FG sessions, run **Check for Updates** from the launcher, then enable Coin Transfer for the campaign. Keep one installation; avoid an old manual copy beside the Forge-managed one. Live/listed status is verified; an independent updater download smoke test remains outstanding.
+
+**Manual alternative:**
+
 1. Download **CoinTransfer.ext** from a [public GitHub Release](https://github.com/alperozisik/FG-CoinTransfer/releases). Use the attached asset, not the automatically generated Source code ZIP.
 2. Close the campaign. Use Fantasy Grounds' data-folder shortcut to locate your data directory, then copy the asset into its `extensions` directory.
 3. Keep one installation: remove an older unpacked `CoinTransfer` source folder from `extensions` if present. Do not load an archive and unpacked copy together.
@@ -90,7 +94,7 @@ The host installs/enables the extension; connected players receive its campaign 
 
 ## Update
 
-Back up the campaign and close it. Replace the existing `.ext` with the asset from the new public Release, keep a single installed copy, and load the campaign again. Check the version in chat. Players should reconnect if their session was interrupted by the reload. Never replace or edit `db.xml` to update the extension. Existing balances, coin items, preferences, and transaction records are campaign data and remain in place.
+For a Forge-managed installation, close FG sessions and run **Check for Updates**. For a manual installation, back up the campaign and close it, then replace the existing `.ext` with the asset from the new public Release; keep a single installed copy, and load the campaign again. Check the version in chat. Players should reconnect if their session was interrupted by the reload. Never replace or edit `db.xml` to update the extension. Existing balances, coin items, preferences, and transaction records are campaign data and remain in place.
 
 ## Disable or remove
 

@@ -1,6 +1,6 @@
 # Coin Transfer
 
-Repository copy of the submitted Forge description. [Forge item 3794](https://forge.fantasygrounds.com/shop/items/3794/view) awaits approval/review; its v0.1.4 build is **QUEUED FOR PROCESSING**, not yet verified Live. [Forum thread 88613](https://www.fantasygrounds.com/forums/showthread.php?88613) is published. Current direct download: [GitHub v0.1.4](https://github.com/alperozisik/FG-CoinTransfer/releases/tag/v0.1.4).
+Repository copy of the submitted Forge description. [Forge item 3794](https://forge.fantasygrounds.com/shop/items/3794/view) is approved and **ACTIVE/listed**; v0.1.4 **build #1 is Live** (publication coordinator UI verification, 2026-11-20). Independent end-to-end FG Updater download was not tested in this chat. [Forum thread 88613](https://www.fantasygrounds.com/forums/showthread.php?88613) is published. Current direct download: [GitHub v0.1.4](https://github.com/alperozisik/FG-CoinTransfer/releases/tag/v0.1.4).
 
 Keep a shared fund for supplies, pool adventure loot and character contributions, and let players withdraw what they need or return spare coins through their own character sheets. When the hoard gets heavy, move it into a Bag of Holding as physical coin items and pair with Extraplanar Containers for its supported weight exemption. The English interface opens from **Inventory > Coin Transfer**, with an additional button for Floating Tabs inventory.
 
@@ -39,7 +39,7 @@ When using MNM Coin Manager/Upgrade, **disable inventory coin mirroring** before
 
 ## Installation and updates
 
-While Forge approval and Live delivery are pending, install the `.ext` asset from the public GitHub Release. After approval and verified Live delivery, the Forge updater can deliver the extension. For manual installation, close the campaign, copy `CoinTransfer.ext` into the Fantasy Grounds data folder's `extensions` directory, and enable Coin Transfer in the launcher. Keep one installed copy; do not install the unpacked source beside the archive. The host enables it for the campaign. The startup chat message identifies the loaded version.
+Install the Live Forge item by adding it to your inventory, closing FG sessions, running **Check for Updates** from the launcher, and enabling Coin Transfer for the campaign. The public GitHub Release asset remains the manual alternative. Live/listed status is verified; independent end-to-end updater download testing is outstanding. For manual installation, close the campaign, copy `CoinTransfer.ext` into the Fantasy Grounds data folder's `extensions` directory, and enable Coin Transfer in the launcher. Keep one installed copy; do not install the unpacked source beside the archive. The host enables it for the campaign. The startup chat message identifies the loaded version.
 
 Back up and close the campaign before replacing an older archive. Existing campaign balances/items remain. Removing the extension does not automatically convert physical coin items back to Treasure: use Items -> Coins first if native-only accounting is wanted. Full instructions: https://github.com/alperozisik/FG-CoinTransfer#readme
 
@@ -56,3 +56,5 @@ MIT license, with the full notice included in the v0.1.4 standalone archive. Sou
 Report issues at https://github.com/alperozisik/FG-CoinTransfer/issues with FG/ruleset/extension versions, GM or player role, operation, reproduction steps, and a sanitized error message. Never upload a full campaign database, credentials, or private player records.
 
 The first listing image is an illustrative cover, not a screenshot. Seven listing images have been uploaded and activated, with the illustrative cover primary; actual product screenshots are clearly distinguished from artwork. The Forge file must be the unchanged public GitHub Release asset, verified by SHA-256.
+
+The live Forge description uses simple HTML. Forge strips inline images on save; listing images belong in its gallery and the forum. Repository Markdown and README embeds remain separate documentation assets. The coordinator maintains the live Forge/forum copy.

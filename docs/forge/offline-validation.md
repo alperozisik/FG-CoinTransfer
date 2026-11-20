@@ -1,6 +1,6 @@
 # Offline validation — 2026-11-20
 
-Working source: 0.1.4 candidate, based on public commit `a910f00`. Public v0.1.4 Release was subsequently published and the downloaded asset was verified; Forge item 3794 was subsequently submitted and awaits approval/review, with the build queued for processing; the forum is published. See READINESS.md. Runtime acceptance followed the initial offline preparation.
+Working source: 0.1.4 candidate, based on public commit `a910f00`. Public v0.1.4 Release was subsequently published and the downloaded asset was verified; Forge item 3794 was subsequently submitted and is approved and ACTIVE/listed, with v0.1.4 build #1 Live (coordinator verification, 2026-11-20); the forum is published. See READINESS.md. Runtime acceptance followed the initial offline preparation.
 
 Command: `python -m unittest discover -s tests -v` — **8 tests passed**:
 
