@@ -1,8 +1,57 @@
 # Coin Transfer
 
-Version **0.1.4**: reproducible standalone package with the MIT notice included. Acceptance passed 44 native FG checks and four connected-player operations; see [recorded scope and limits](docs/testing.md). Forge publication is pending.
+<img src="assets/coin-transfer-icon-96.png" alt="Coin Transfer coin and arrows icon" width="96" height="96" align="right">
 
-English interface for Fantasy Grounds 5E. Open a character's Inventory tab and click **Coin Transfer**. The same button is added to Floating Tabs inventory. Players can also use `/cointransfer` with an active identity; the GM can use `/cointransfer <character name>`.
+Move shared party money into your character's Treasure or inventory containers, and turn coins into weighted items whenever you need them. Players can withdraw and deposit through their owned character without a separate GM approval click. The English interface remembers the last operation and container.
+
+[Download v0.1.4](https://github.com/alperozisik/FG-CoinTransfer/releases/tag/v0.1.4) · [Report an issue](https://github.com/alperozisik/FG-CoinTransfer/issues) · [Screenshot gallery](docs/forge/images/README.md)
+
+Forge publication is pending; the current download is the public GitHub Release.
+
+<img src="docs/forge/images/coin-transfer-cover-forge.jpg" alt="Illustrative Coin Transfer cover artwork" width="720">
+
+*Illustrative cover artwork; the actual Fantasy Grounds interface is shown below.*
+
+## Requirements
+
+- Fantasy Grounds with the **5E ruleset**, with Coin Transfer enabled by the host.
+- For player party transfers: a connected host, an owned character on the Party Sheet, and enough money at the source. Shared party coins are player-visible.
+- For physical coin transfers with MNM Coin Manager/Upgrade: disable MNM's inventory coin mirroring option. Containers must have unique names and quantity one.
+
+Separate 2014/2024 configurations and other-extension combinations are unverified for v0.1.4; see [tested environment and support limits](#tested-environment-and-support-limits).
+
+## First transfer
+
+1. Install the extension using the steps below and open your character's **Inventory** tab.
+2. Click **Coin Transfer**, choose **Withdraw from Party**, and select Treasure > Coins or a container such as Bag of Holding.
+3. Enter whole coin quantities, review **Destination After** and the weight, then click **Transfer**.
+
+The host validates membership and balances automatically. Each denomination stays the same. Use **Deposit to Party** to return money to the shared pool.
+
+![Coin Transfer window showing a 5 GP withdrawal preview to Bag of Holding](docs/forge/images/02-transfer-0.1.4.jpg)
+
+The button is also added to Floating Tabs inventory. Players can use `/cointransfer` with an active identity; the GM can use `/cointransfer <character name>`.
+
+## Four operations
+
+- **Withdraw from Party:** take shared Party Sheet coins into Treasure > Coins, loose inventory, or a container.
+- **Deposit to Party:** return Treasure coins or physical coin items to the shared Party Sheet pool.
+- **Coins -> Items:** remove Treasure coins and create the corresponding inventory quantities.
+- **Items -> Coins:** remove physical quantities and credit Treasure coins.
+
+Select whole coin quantities and click **Transfer**. The last operation and container are saved per character. A missing or ambiguous container must be selected again. Container stacks must have quantity 1 and unique names.
+
+## One combined carried total
+
+Party Sheet > Inventory > Carried currency totals include both Treasure coins and physical coin items marked Carried or Equipped, across all containers. Each character appears once per denomination with the combined amount. The shared Loot pool remains separate. Not Carried items, zero-count items, ordinary valuables, and MNM's aggregate Currency mirror are excluded from this currency total. Changing an item's carrying status updates the total.
+
+![Party Sheet showing combined carried GP totals and a separate shared Loot pool](docs/forge/images/06-party-totals-0.1.4.jpg)
+
+In this synthetic example, Test 1 has **126 GP**: 106 Treasure + 5 in Backpack + 15 in Bag of Holding. Test 2 has 100 GP, so the carried total is **226 GP**. The shared pool is **274 GP**.
+
+[More screenshots: container selection, inventory stacks, and coin cost/weight](docs/forge/images/README.md).
+
+Party transfers require Party Sheet membership and available shared money. The host processes player requests automatically; the GM does not approve each request. Balances are rechecked on the host, and replayed requests are rejected. Multi-currency requests are fully validated before changing balances. Transfers preserve denominations; currency exchange is outside this extension's scope.
 
 ## Install
 
@@ -21,19 +70,6 @@ Back up the campaign and close it. Replace the existing `.ext` with the asset fr
 
 To return to native Treasure-only accounting, first use **Items -> Coins** for physical coins in each inventory location. This is optional: disabling the extension does not delete remaining coin items or turn them into Treasure balances automatically. Close the campaign and uncheck **Coin Transfer** in the launcher; the `.ext` can then be removed from `extensions`. Existing items retain their normal cost and weight, but native Party Sheet coin totals may no longer include physical coin items. Re-enable the extension to use its conversion and combined totals again. Automatic shared templates and stored preferences/ledger entries are not automatically deleted on uninstall.
 
-## Operations
-
-- **Withdraw from Party:** take shared Party Sheet coins into Treasure > Coins, loose inventory, or a container.
-- **Deposit to Party:** return Treasure coins or physical coin items to the shared Party Sheet pool.
-- **Coins -> Items:** remove Treasure coins and create the corresponding inventory quantities.
-- **Items -> Coins:** remove physical quantities and credit Treasure coins.
-
-Select whole coin quantities and click **Transfer**. The last operation and container are saved per character. A missing or ambiguous container must be selected again. Container stacks must have quantity 1 and unique names.
-
-Party Sheet > Inventory > Carried currency totals include both Treasure coins and physical coin items marked Carried or Equipped, across all containers. Each character appears once per denomination with the combined amount. The shared Loot pool remains separate. Not Carried items, zero-count items, ordinary valuables, and MNM's aggregate Currency mirror are excluded from this currency total. Changing an item's carrying status updates the total.
-
-Party transfers require Party Sheet membership and available shared money. The host processes player requests automatically; the GM does not approve each request. Balances are rechecked on the host, and replayed requests are rejected. Multi-currency requests are fully validated before changing balances. Transfers preserve denominations; currency exchange is outside this extension's scope.
-
 ## Currency items and compatibility
 
 The extension reads campaign Currencies for names, values and unit weights. It reuses matching denomination items where available, otherwise creates shared templates such as **Gold Piece (GP)**, type Treasure, unit cost **1 GP**, and the configured weight. Compatible custom currencies are supported. Generic valuables and MNM's aggregate **Currency** mirror are never treated as denomination coins.
@@ -44,7 +80,7 @@ New MNM Coin and Trade was not installed during development. Native currency dat
 
 ## Tested environment and support limits
 
-Current 0.1.4 acceptance used **Fantasy Grounds 5.1.15**, **5E/CoreRPG 2026-10-06**, Default theme and only Coin Transfer enabled. All four operations passed on a separate owning player client. See [acceptance evidence](docs/testing.md) and [real product screenshots](docs/forge/images/). Historical testing used **Fantasy Grounds 5.1.13**, with **5E/CoreRPG dated 2026-07-14**. This is a tested environment, not a proven minimum version. The extension targets the shared **5E ruleset**; separate 2014 and 2024 character/rules configurations have not yet completed a recorded acceptance matrix. Do not interpret the 5E label as certification for both editions or every later FG update.
+Current 0.1.4 acceptance used **Fantasy Grounds 5.1.15**, **5E/CoreRPG 2026-10-06**, Default theme and only Coin Transfer enabled. Eight offline package checks and 44 native FG assertions passed. All four operations passed on a separate owning player client, and reopening the campaign preserved balances and container preferences. See [acceptance evidence](docs/testing.md) and [real product screenshots](docs/forge/images/). Historical testing used **Fantasy Grounds 5.1.13**, with **5E/CoreRPG dated 2026-07-14**. This is a tested environment, not a proven minimum version. The extension targets the shared **5E ruleset**; separate 2014 and 2024 character/rules configurations have not yet completed a recorded acceptance matrix. Do not interpret the 5E label as certification for both editions or every later FG update.
 
 Historical combined-session observations covered MNM Core v83, Coin Manager v16, Upgrade v3, Extraplanar Containers v1.21, Party Item Weight v1.11, Floating Tabs v1.7, Winnowing Pursuits v2.7.6, and Core Dark. This does not certify all features or versions of those extensions. Bag of Holding weight exemption remains the container extension's responsibility and was not independently verified. Acceptance evidence and limits are in [docs/testing.md](docs/testing.md).
 
